@@ -65,7 +65,6 @@ This project is part of a learning journey to deeply understand transformer-base
 
 - Python
 - PyTorch
-- NumPy
 
 ## Notes
 
