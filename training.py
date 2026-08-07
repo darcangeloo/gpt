@@ -9,6 +9,10 @@ from generation import generate
 
 CKPT_PATH = Path("gpt_trained.pth")
 
+print(torch.__version__)
+print(torch.version.cuda)
+print(torch.cuda.is_available())
+
 
 class DS(Dataset):
     def __init__(self, ids, L, S):
@@ -75,9 +79,8 @@ def train(model, train_loader, val_loader, opt, dev, epochs=3):
 
 
 def main():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("device:", device)
-
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    print('Using device:', device)
     print("loading dataset...")
     raw = load_dataset("roneneldan/TinyStories", split="train")
 
